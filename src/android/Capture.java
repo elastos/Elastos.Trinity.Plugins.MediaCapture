@@ -18,6 +18,7 @@
 */
 package org.apache.cordova.mediacapture;
 
+import org.elastos.trinity.dapprt.TrinityPlugin;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -58,7 +59,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 
-public class Capture extends CordovaPlugin {
+public class Capture extends TrinityPlugin {
 
     private static final String VIDEO_3GPP = "video/3gpp";
     private static final String VIDEO_MP4 = "video/mp4";
