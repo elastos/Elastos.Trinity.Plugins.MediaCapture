@@ -22,6 +22,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Cordova/CDVPlugin.h>
 #import "CDVFile.h"
+#import "TrinityPlugin.h"
 
 enum CDVCaptureError {
     CAPTURE_INTERNAL_ERR = 0,
@@ -45,7 +46,7 @@ typedef NSUInteger CDVCaptureError;
 
 @end
 
-@interface CDVCapture : CDVPlugin <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CDVCapture : TrinityPlugin <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     CDVImagePicker* pickerController;
     BOOL inUse;
