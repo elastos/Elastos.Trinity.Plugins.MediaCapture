@@ -23,9 +23,9 @@ description: Capture audio, video, and images.
 
 |AppVeyor|Travis CI|
 |:-:|:-:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/cordova-plugin-media-capture?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/cordova-plugin-media-capture)|[![Build Status](https://travis-ci.org/apache/cordova-plugin-media-capture.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-media-capture)|
+|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/elastos-trinity-plugins-media-capture?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/elastos-trinity-plugins-media-capture)|[![Build Status](https://travis-ci.org/apache/elastos-trinity-plugins-media-capture.svg?branch=master)](https://travis-ci.org/apache/elastos-trinity-plugins-media-capture)|
 
-# cordova-plugin-media-capture
+# elastos-trinity-plugins-media-capture
 
 This plugin provides access to the device's audio, image, and video capture capabilities.
 
@@ -55,7 +55,7 @@ Although in the global scope, it is not available until after the `deviceready` 
 
 ## Installation
 
-    cordova plugin add cordova-plugin-media-capture
+    cordova plugin add elastos-trinity-plugins-media-capture
 
 ## Supported Platforms
 
