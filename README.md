@@ -55,7 +55,9 @@ Although in the global scope, it is not available until after the `deviceready` 
 
 ## Installation
 
-    cordova plugin add elastos-trinity-plugins-media-capture
+    cordova plugin add https://github.com/elastos/Elastos.Trinity.Plugins.MediaCapture.git
+
+    The plugins field of dapp manifest.json adds Capture values, such as "plugins": ["XXXX", "Capture", "XXXX"]
 
 ## Supported Platforms
 
