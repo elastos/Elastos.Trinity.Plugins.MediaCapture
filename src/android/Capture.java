@@ -124,7 +124,14 @@ public class Capture extends TrinityPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("getFormatData")) {
-            JSONObject obj = getFormatData(args.getString(0), args.getString(1));
+            String realPath = null;
+            try {
+                realPath = getCanonicalPath(args.getString(0));
+            } catch (Exception e) {
+                callbackContext.error(e.getLocalizedMessage());
+                return false;
+            }
+            JSONObject obj = getFormatData(realPath, args.getString(1));
             callbackContext.success(obj);
             return true;
         }
@@ -186,7 +193,7 @@ public class Capture extends TrinityPlugin {
     /**
      * Get the Image specific attributes
      *
-     * @param filePath path to the file
+     * @param fileUrl path to the file
      * @param obj represents the Media File Data
      * @return a JSONObject that represents the Media File Data
      * @throws JSONException
@@ -246,7 +253,8 @@ public class Capture extends TrinityPlugin {
         File cache = null;
 
         // Use internal storage
-        cache = cordova.getActivity().getCacheDir();
+//        cache = cordova.getActivity().getCacheDir();
+        cache = new File(getDataPath() + "/cache/");
 
         // Create the cache directory if it doesn't exist
         cache.mkdirs();
@@ -320,6 +328,7 @@ public class Capture extends TrinityPlugin {
      * @param intent            An Intent, which can return result data to the caller (various data can be attached to Intent "extras").
      * @throws JSONException
      */
+    @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent intent) {
         final Request req = pendingRequests.get(requestCode);
 
@@ -557,7 +566,7 @@ public class Capture extends TrinityPlugin {
                 break;
         }
     }
-
+    @Override
     public void onRequestPermissionResult(int requestCode, String[] permissions,
                                           int[] grantResults) throws JSONException {
         Request req = pendingRequests.get(requestCode);
@@ -578,11 +587,12 @@ public class Capture extends TrinityPlugin {
             }
         }
     }
-
+    @Override
     public Bundle onSaveInstanceState() {
         return pendingRequests.toBundle();
     }
 
+    @Override
     public void onRestoreStateForActivityResult(Bundle state, CallbackContext callbackContext) {
         pendingRequests.setLastSavedState(state, callbackContext);
     }
