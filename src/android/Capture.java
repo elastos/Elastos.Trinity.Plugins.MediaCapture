@@ -18,6 +18,7 @@
 */
 package org.apache.cordova.mediacapture;
 
+import org.elastos.trinity.runtime.AuthorityPlugin;
 import org.elastos.trinity.runtime.TrinityPlugin;
 import java.io.File;
 import java.io.FileInputStream;
