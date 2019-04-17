@@ -393,7 +393,16 @@
 {
     NSString* callbackId = command.callbackId;
     // existence of fullPath checked on JS side
-    NSString* fullPath = [command argumentAtIndex:0];
+    NSString* relativePath = [command argumentAtIndex:0];
+    /*get absolute path*/
+    NSError *err = nil;
+    NSString* fullPath = [self getCanonicalPath:relativePath error:&err];
+    if(err != nil){
+        NSLog(@"can not get real path");
+        CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:err.userInfo[NSLocalizedDescriptionKey]];
+        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+        return ;
+    }
     // mimeType could be null
     NSString* mimeType = nil;
 
