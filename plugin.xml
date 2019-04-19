@@ -98,6 +98,12 @@ xmlns:rim="http://www.blackberry.com/ns/widgets"
                 <param name="ios-package" value="CDVCapture" />
             </feature>
         </config-file>
+        <config-file target="-Info.plist" parent="NSMicrophoneUsageDescription">
+            <string>Allow the app to access your microphone.</string>
+        </config-file>
+        <config-file target="-Info.plist" parent="NSPhotoLibraryAddUsageDescription">
+            <string>Allow the app to access your Photo.</string>
+        </config-file>
         <header-file src="src/ios/CDVCapture.h" />
         <source-file src="src/ios/CDVCapture.m" />
         <resource-file src="src/ios/CDVCapture.bundle" />
