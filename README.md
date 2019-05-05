@@ -21,10 +21,6 @@ description: Capture audio, video, and images.
 #         under the License.
 -->
 
-|AppVeyor|Travis CI|
-|:-:|:-:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/elastos-trinity-plugins-media-capture?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/elastos-trinity-plugins-media-capture)|[![Build Status](https://travis-ci.org/apache/elastos-trinity-plugins-media-capture.svg?branch=master)](https://travis-ci.org/apache/elastos-trinity-plugins-media-capture)|
-
 # elastos-trinity-plugins-media-capture
 
 This plugin provides access to the device's audio, image, and video capture capabilities.
@@ -55,16 +51,12 @@ Although in the global scope, it is not available until after the `deviceready` 
 
 ## Installation
 
-    cordova plugin add https://github.com/elastos/Elastos.Trinity.Plugins.MediaCapture.git
-
     The plugins field of dapp manifest.json adds Capture values, such as "plugins": ["XXXX", "Capture", "XXXX"]
 
 ## Supported Platforms
 
 - Android
-- Browser
 - iOS
-- Windows
 
 ## Objects
 
@@ -124,7 +116,6 @@ code.
 
 - Android
 - iOS
-- Windows
 
 ### Example
 
@@ -148,10 +139,6 @@ code.
 ### iOS Quirks
 
 - iOS does not have a default audio recording application, so a simple user interface is provided.
-
-### Windows Phone 7 and 8 Quirks
-
-- Windows Phone 7 does not have a default audio recording application, so a simple user interface is provided.
 
 ## capture.captureImage
 
@@ -182,9 +169,7 @@ object featuring a `CaptureError.CAPTURE_NO_MEDIA_FILES` error code.
 ### Supported Platforms
 
 - Android
-- Browser
 - iOS
-- Windows
 
 ### iOS Quirks
 
@@ -216,15 +201,6 @@ To add these entries into the `info.plist`, you can use the `edit-config` tag in
     <string>need to photo library access to get pictures from there</string>
 </edit-config>
 ```
-
-### Browser Quirks
-
-Works in Chrome, Firefox and Opera only (since IE and Safari doesn't supports
-navigator.getUserMedia API)
-
-Displaying images using captured file's URL available in Chrome/Opera only.
-Firefox stores captured images in IndexedDB storage (see File plugin documentation),
-and due to this the only way to show captured image is to read it and show using its DataURL.
 
 ### Example
 
@@ -276,7 +252,6 @@ capturing a video clip, the `CaptureErrorCB` callback executes with a
 
 - Android
 - iOS
-- Windows
 
 ### Example
 
@@ -514,7 +489,6 @@ callback.
 
 - Android
 - iOS
-- Windows
 
 
 ### Android Quirks
