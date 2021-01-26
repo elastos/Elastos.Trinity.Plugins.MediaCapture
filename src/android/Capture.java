@@ -467,9 +467,15 @@ public class Capture extends TrinityPlugin {
             } catch (IllegalAccessException e) {
             }
         }
-        //FileUtils filePlugin = (FileUtils) pm.getPlugin("File");
-		AuthorityPlugin authorityPlugin= (AuthorityPlugin) pm.getPlugin("File");
-        FileUtils filePlugin = (FileUtils) authorityPlugin.getOriginalPlugin();
+
+        FileUtils filePlugin = null;
+        CordovaPlugin plugin = pm.getPlugin("File");
+        if (plugin instanceof FileUtils) {
+            filePlugin = (FileUtils) plugin;
+        } else {
+            AuthorityPlugin authorityPlugin= (AuthorityPlugin) plugin;
+            filePlugin = (FileUtils) authorityPlugin.getOriginalPlugin();
+        }
 
         LocalFilesystemURL url = filePlugin.filesystemURLforLocalPath(fp.getAbsolutePath());
 
