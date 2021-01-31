@@ -138,4 +138,9 @@ xmlns:rim="http://www.blackberry.com/ns/widgets"
         </js-module>
     </platform>
 
+    <platform name="electron">
+        <js-module src="src/electron/CaptureProxy.js" name="CaptureProxy">
+            <runs />
+        </js-module>
+    </platform>
 </plugin>
